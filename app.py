@@ -9,7 +9,7 @@ time.clock = time.time # ccorrige o erro de time.clock
 app = Flask(__name__)
 
 chatbot=ChatBot('Senac-Palhoça',storage_adapter='chatterbot.storage.SQLStorageAdapter',
-    database_uri='sqlite:///senac2.sqlite3')
+    database_uri='sqlite:///banco.sqlite3')
 
 # limpa o banco de dados....
 #chatbot.storage.drop();
@@ -36,9 +36,14 @@ trainer.train('chatterbot.corpus.german')
 '''
 # para treinar ----
 trainer = ListTrainer(chatbot)
+
+
+#essa lista cpntem possiveis posiveis perguntas seguidas de respostas
 trainer.train([
-    'Oi', 'Olá','Boa Tarde', 'Boa Tarde, como você está', 'Tudo bem?', 'Tudo ótimo', 'Quero  informações?', 'Sobre o que deseja informações',
-'Curso Superior em Tecnologia','Temos o Curso de ADS na Unidade de Palhoça', 'Tem Curso a Noite?','Sim temos horário a noite', 'Aulas aos sábados'])
+    'Oi', 'Olá', 'oi', 'Olá', 'vamos comer sushi?', 'Claro! O bruno irá pagar'
+])
+
+
 
 @app.route("/")
 def home():
@@ -50,7 +55,7 @@ def chatbot_response():
     resposta = ""
     response = chatbot.get_response(msg)
     if float(response.confidence) > 0.2:
-        resposta = str(chatbot.get_response(msg))
+        resposta = str(response)
     else:
         resposta = "Ainda não aprendi tudo que preciso"
     return resposta

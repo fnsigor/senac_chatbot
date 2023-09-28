@@ -100,10 +100,10 @@ button, input, optgroup, select, textarea {
     overflow:visible;
 }
 #chatbox {
-    background-color: cyan;
+    background-color: #1a1a1a;
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
+    width: 100%;
     min-height: 70px;
     margin-top: 60px;
 }
@@ -139,7 +139,7 @@ button, input, optgroup, select, textarea {
 }
 
 .userText span {
-    background-color: #009688;
+    background-color: #3d3d3d;
     padding: 10px;
     border-radius: 2px;
 }
@@ -154,7 +154,7 @@ button, input, optgroup, select, textarea {
 }
 
 .botText span {
-    background-color: #ef5350;
+    background-color: #452a68;
     padding: 10px;
     border-radius: 2px;
 }
